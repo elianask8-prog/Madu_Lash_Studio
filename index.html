@@ -651,48 +651,62 @@
     }
 
     @media(max-width:600px) {
+
       .header {
-        height: 70px
+        height: 60px;
+        padding: 0 20px;
+        grid-template-columns: 1fr;
       }
 
       .logo {
-        width: 115px
+        width: 105px;
+        max-height: 48px;
       }
 
       .hero {
-        min-height: 900px;
-        padding: 110px 7vw 60px;
-        align-items: flex-start
+        min-height: 760px;
+        padding: 100px 24px 40px;
+        align-items: flex-start;
       }
 
       .hero-word {
-        font-size: 43vw;
-        top: 18vh
+        font-size: 38vw;
+        top: 120px;
+        right: -8vw;
       }
 
       .hero-copy {
-        width: 100%
+        width: 100%;
+        padding-top: 0;
       }
 
       .hero h1 {
-        font-size: 75px
+        font-size: clamp(58px, 18vw, 75px);
+        line-height: .78;
+        margin: 25px 0;
       }
 
       .hero h1 i {
-        margin-left: 18vw
+        margin-left: 8vw;
       }
 
       .hero p {
-        width: 80%
+        width: 90%;
+        max-width: 330px;
+        font-size: 13px;
+        line-height: 1.7;
+        margin: 25px 0;
       }
 
       .hero-photo {
         top: auto;
-        bottom: 40px;
+        bottom: 35px;
         right: 7vw;
         width: 72vw;
-        height: 370px
+        height: 330px;
       }
+
+
 
       .side-label {
         display: none
@@ -733,13 +747,16 @@
       }
 
       .gallery {
-        grid-template-columns: 1fr;
-        grid-template-rows: 340px 220px 220px
+        display: block;
+        columns: auto;
       }
 
-      .shot:nth-child(1) {
-        grid-row: auto
+      .gallery .shot {
+        width: 100%;
+        margin-bottom: 16px;
       }
+
+
 
       .care {
         padding: 100px 7vw
