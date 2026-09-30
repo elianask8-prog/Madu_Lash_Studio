@@ -596,7 +596,51 @@
       transform: translateY(-3px);
     }
 
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      color: inherit;
+      font-size: 26px;
+      cursor: pointer;
+      z-index: 60;
+    }
+
+    .mobile-menu {
+      display: none;
+    }
+
     @media(max-width:900px) {
+
+      .menu-toggle {
+        display: block;
+        justify-self: end;
+      }
+
+      .mobile-menu {
+        position: fixed;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        background: var(--ink);
+        color: var(--paper);
+        display: none;
+        flex-direction: column;
+        padding: 30px 24px;
+        gap: 24px;
+        z-index: 55;
+      }
+
+      .mobile-menu.open {
+        display: flex;
+      }
+
+      .mobile-menu a {
+        font-size: 13px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
       .center-nav {
         display: none
       }
@@ -646,7 +690,7 @@
       }
 
       .tech p {
-        display: none
+        display: block
       }
     }
 
@@ -742,10 +786,6 @@
         font-size: 57px
       }
 
-      .tech h3 {
-        font-size: 33px
-      }
-
       .gallery {
         display: block;
         columns: auto;
@@ -781,6 +821,34 @@
         gap: 20px;
         flex-wrap: wrap
       }
+
+      .tech {
+        grid-template-columns: 55px 1fr 35px;
+        row-gap: 8px;
+        padding: 28px 0;
+      }
+
+      .tech h3 {
+        grid-column: 2;
+        font-size: 33px
+      }
+
+
+
+
+      .tech p {
+        display: block;
+        grid-column: 2;
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .tech .arrow {
+        grid-column: 3;
+        grid-row: 1 / 3;
+        align-self: center;
+      }
     }
   </style>
 </head>
@@ -791,6 +859,16 @@
     <nav class="center-nav"><a href="#sobre">Sobre</a><a href="#tecnicas">Técnicas</a><a
         href="#resultados">Resultados</a><a href="#care">Beauty & Care</a></nav>
     <a class="right-nav" href="#agendar">Agendar horário</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+      ☰
+    </button>
+    <nav class="mobile-menu" id="mobileMenu">
+      <a href="#sobre">Sobre</a>
+      <a href="#tecnicas">Técnicas</a>
+      <a href="#resultados">Resultados</a>
+      <a href="#care">Beauty & Care</a>
+      <a href="#agendar">Agendar horário</a>
+    </nav>
   </header>
 
   <main>
@@ -1005,6 +1083,21 @@
         top: 0,
         behavior: 'smooth'
       });
+
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+        });
+      });
+
+
     });
 
   </script>
