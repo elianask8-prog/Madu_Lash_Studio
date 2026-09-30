@@ -639,6 +639,14 @@
       fill: currentColor;
     }
 
+    .social-float a[aria-label="WhatsApp"] {
+      color: #25D366;
+    }
+
+    .social-float a[aria-label="Instagram"] {
+      color: #E4405F;
+    }
+
     .social-float a:hover {
       transform: translateY(-3px);
     }
@@ -1169,16 +1177,16 @@
     });
 
     const menuToggle = document.getElementById('menuToggle');
-      const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
 
-      menuToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('open');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
       });
-
-      mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.remove('open');
-        });
 
 
     });
