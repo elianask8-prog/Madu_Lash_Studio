@@ -644,7 +644,7 @@
     }
 
 
-    @media(max-width:1024px) {
+    @media(max-width:900px) {
 
       .menu-toggle {
         display: block;
@@ -725,6 +725,31 @@
 
       .tech p {
         display: block
+      }
+    }
+
+    @media(max-width:1024px) {
+      .menu-toggle {
+        display: block;
+        justify-self: end;
+      }
+
+      .mobile-menu {
+        position: fixed;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        background: var(--ink);
+        color: var(--paper);
+        display: none;
+        flex-direction: column;
+        padding: 30px 24px;
+        gap: 24px;
+        z-index: 55;
+      }
+
+      .mobile-menu.open {
+        display: flex;
       }
     }
 
@@ -1140,7 +1165,10 @@
         behavior: 'smooth'
       });
 
-      const menuToggle = document.getElementById('menuToggle');
+
+    });
+
+    const menuToggle = document.getElementById('menuToggle');
       const mobileMenu = document.getElementById('mobileMenu');
 
       menuToggle.addEventListener('click', () => {
@@ -1151,7 +1179,6 @@
         link.addEventListener('click', () => {
           mobileMenu.classList.remove('open');
         });
-      });
 
 
     });
